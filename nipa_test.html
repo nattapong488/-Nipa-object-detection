@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="nipa_style.css" />
+
+    <title>Nipa.Cloud Nvision's Object Detection</title>
+  </head>
+
+  <body>
+    <!-- side-nav -->
+    <div class="side-nav">
+      <div class="con-logo-text">
+        <div class="con-logo">
+         
+          <img src="https://nvision.nipa.cloud/img/Home.e24230e1.png" width="32px" alt="icon" />
+        </div>
+        <div class="con-text">Nvision</div>
+      </div>
+      <div class="con-list">
+        <div class="list1">
+          <img
+            src="https://mirror.nipa.cloud/nipacloud_logo/marketplace/Object%20Detection.png"
+            width="32px"
+            alt=""
+          />
+        </div>
+        <div class="con-text-object"><a href="#">Object Detection</a></div>
+      </div>
+    </div>
+
+    <!-- main -->
+    <div class="encap">
+      <div class="con">
+        <h1>Object Detection</h1>
+        <!-- img HTML -->
+        <div class="in">
+          <label for="upload" id="label-upload">Upload</label>
+          <div class="con-in">
+            <input
+              id="upload"
+              type="file"
+              name="file"
+              accept="image/png, image/gif, image/jpeg"
+              onchange="renderFile(event); encodeImageFileAsURL(this);"
+            />
+          </div>
+        </div>
+        <!-- show-Preview -->
+        <div class="preview-img">
+          <!-- <button id="clear-pic" onclick="clearpicture()">Clear</button> -->
+          <img id="preview" /><br />
+          <!-- <input type="submit" value="Submit" /> -->
+        </div>
+      </div>
+
+      <!-- webCam -->
+      <div class="con-webCam">
+        <div class="en-web-cap">
+          <h1>Webcam-Capture</h1>
+          <canvas class="webcam-cap" id="canvas"></canvas>
+          <button id="snap" onclick="snap()">Snap shot</button>
+        </div>
+        <!-- devide webcam and web-cap -->
+        <div class="en-webcam">
+          <h1>Webcam Detect</h1>
+          <video autoplay="true" id="webcam"></video>
+          <div class="con-btn">
+            <button id="start">start</button>
+            <button id="stop">stop</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="data">
+      <!-- <h1>Data Return</h1> -->
+      <div class="con-analy">
+        <h1>Analyzed Results</h1>
+        <div class="show-info" id="analy">
+          <div class="group">
+            <img src="icon/human.svg" alt="" class="icon-ana" />
+            <span class="text-ana">Human</span>
+          </div>
+          <div class="group">
+            <img src="icon/glasses.svg" alt="" class="icon-ana" />
+
+            <span class="text-ana">Glasses</span>
+          </div>
+        </div>
+      </div>
+      <div class="con-obj">
+        <h1>Response</h1>
+        <div class="show-info">
+          <p class="object-return">
+            {
+              "service_id": "4dbe2eef-3cd4-490b-afab-acb799eda90e",
+              "detected_objects": [
+                {
+                  "bounding_box": {
+                    "bottom": 240,
+                    "left": 86,
+                    "right": 116,
+                    "top": 200
+                  },
+                  "name": "tie",
+                  "confidence": 0.914900004863739,
+                  "parent": "accessory"
+                },
+                {
+                  "bounding_box": {
+                    "bottom": 240,
+                    "left": 1,
+                    "right": 207,
+                    "top": 22
+                  },
+                  "name": "person",
+                  "confidence": 0.9995999932289124,
+                  "parent": "human"
+                }
+              ]
+            }
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <!-- <script  type="module" src="./static/sendApi.js"></script> -->
+    <script src="nipa_script.js"></script>
+    <!-- <script src="takesnap.js"></script> -->
+  </body>
+</html>
